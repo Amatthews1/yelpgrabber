@@ -7,15 +7,17 @@ Created on Feb 25, 2016
 @author: austinmatthews
 '''
 
-from BeautifulSoup import BeautifulSoup
 import urllib
 import urllib2
-import webbrowser
-import mechanize
+from bs4 import BeautifulSou
 
 def main():
-    yelp = 'http://www.yelp.com/biz/century-theatres-rowland-plaza-novato?osq=cinemark+theatre' 
-    webbrowser.open(yelp)
+    theatre_one = 'http://www.yelp.com/biz/century-theatres-rowland-plaza-novato?osq=rowland+theatre'
+    soup = BeautifulSoup(urllib2.urlopen(theatre_one), 'html.parser')
+    p_list = soup.find_all('p')
+
+    for d in p_list:
+        print d
     
 
 if __name__ == '__main__':
