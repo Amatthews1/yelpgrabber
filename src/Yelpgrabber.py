@@ -74,7 +74,7 @@ def main():
         
         for a,b in zip(user_rating_date_list, u_name_and_review_list):
             print a,b 
-    
+            
     
     
 if __name__ == '__main__':
