@@ -10,12 +10,13 @@ Created on Feb 25, 2016
 import urllib
 import urllib2
 from bs4 import BeautifulSoup
-
+from openpyxl import load_workbook
 
 
 def main():
     
-    theatre_one = 'http://www.yelp.com/biz/century-theatres-rowland-plaza-novato?osq=rowland+theatre'  # page to scrap reviews and ratings from
+    # page to scrap reviews and ratings from
+    theatre_one = 'http://www.yelp.com/biz/century-theatres-rowland-plaza-novato?osq=rowland+theatre'  
     theatre_two = 'http://www.yelp.com/biz/century-theatres-northgate-san-rafael?osq=cinemark+northgate'
     theatre_three = 'http://www.yelp.com/biz/cinemark-theaters-tracy?osq=cinemark+theatre'
     theatre_four = 'http://www.yelp.com/biz/century-cinema-16-mountain-view?osq=cinemark+theatre'
