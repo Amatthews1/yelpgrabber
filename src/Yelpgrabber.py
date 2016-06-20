@@ -57,13 +57,11 @@ def main():
     theatre_seventeen = 'http://www.yelp.com/biz/century-at-tanforan-san-bruno' #Theatre 494
     theatre_eighteen = 'http://nz.yelp.com/biz/century-olympia-theaters-olympia?sort_by=rating_desc' #Theatre 497
     theatre_nineteen = 'http://www.yelp.com/biz/lincoln-square-cinemas-bellevue-2' #Theatre 1118
-    
     #theatre_list_test = [theatre_one]
 
-    theatre_list = [theatre_one, theatre_two, theatre_three, theatre_four, theatre_five, theatre_six, theatre_seven, theatre_eight, theatre_nine, 
-                    theatre_ten, theare_eleven, theatre_twelve, theatre_thirteen, theatre_fourteen, theatre_fifteen, theatre_sixteen, theatre_seventeen, 
+    theatre_list = [theatre_one, theatre_two, theatre_three, theatre_four, theatre_five, theatre_six, theatre_seven, theatre_eight, theatre_nine,
+                    theatre_ten, theare_eleven, theatre_twelve, theatre_thirteen, theatre_fourteen, theatre_fifteen, theatre_sixteen, theatre_seventeen,
                     theatre_eighteen, theatre_nineteen]
-    
 
     for theatre in theatre_list:                                 # loop through theatre list and perform yelpgrabbing on each
         soup = BeautifulSoup(urllib2.urlopen(theatre), 'html.parser') # parse html using beautiful soup  
