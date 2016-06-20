@@ -12,7 +12,6 @@ import urllib2
 from bs4 import BeautifulSoup
 
 class TheatreData(object):
-<<<<<<< HEAD
     def __init__(self):
         self.name       = None
         self.theatre_id = None
@@ -39,88 +38,6 @@ class TheatreData(object):
 def main():
     # page to scrap reviews and ratings from
 
-=======
-	''' Stores Relevant Theatre Data for Access in Excel_Input Module
-
-		Relevant Data per post is:
-		(col 1) posting date,
-		(col 2) post rating,
-		(col 3) post comments
-
-		Each data set is stored as a list
-	'''
-
-	def __init__(self):
-		self.name       = None
-		self.theatre_id = None
-		self.dates      = None
-		self.ratings    = None
-		self.comments   = None
-
-	def set_name_and_id(self, name, ID):
-		self.name = name
-		self.theatre_id = ID
-
-	def set_post_dates(self, date_list):
-		self.dates = date_list
-
-	def set_post_ratings(self, rating_list):
-		self.ratings = rating_list
-
-	def set_post_comments(self, comment_list):
-		self.comments = comment_list
-
-	def get_theatre_data(self):
-		return [self.name, self.theatre_id, self.dates, self.ratings, self.comments]
-
-def main():
-    # page to scrap reviews and ratings from
-<<<<<<< HEAD
-    theatre_one = 'http://www.yelp.com/biz/century-theatres-rowland-plaza-novato?osq=rowland+theatre' # 472
-    #theatre_two = 'http://www.yelp.com/biz/century-theatres-northgate-san-rafael?osq=cinemark+northgate'
-    #theatre_three = 'http://www.yelp.com/biz/cinemark-theaters-tracy?osq=cinemark+theatre'
-    #theatre_four = 'http://www.yelp.com/biz/century-cinema-16-mountain-view?osq=cinemark+theatre'
-    #theatre_five = 'http://www.yelp.com/biz/century-larkspur-landing-cinemas-larkspur?osq=cinemark+theatre'
-    #theatre_six = 'http://www.yelp.com/biz/century-theatres-anchorage?osq=cinemark'
-    #theatre_seven = 'http://www.yelp.com/biz/century-downtown-12-san-mateo?osq=cinemark'
-    #theatre_eight = 'http://www.yelp.com/biz/century-20-theatre-daly-city?osq=cinemark'
-    #theatre_nine = 'http://www.yelp.com/biz/century-san-francisco-centre-9-san-francisco?osq=sf+center+cinemark+theatre'
-    #theatre_ten = 'http://www.yelp.com/biz/century-cinema-corte-madera-corte-madera?osq=corte+medera+cinemark'
-    #theare_eleven = 'http://www.yelp.com/biz/century-regency-san-rafael-2?osq=cinemark+regency'
-    #theatre_twelve = 'http://www.yelp.com/biz/cinearts-sequoia-mill-valley'
-    #theatre_thirteen = 'http://www.yelp.com/biz/cinearts-palo-alto-square-palo-alto?osq=cinemark'
-    #theatre_fourteen = 'http://www.yelp.com/biz/century-20-oakridge-san-jose'
-    #theatre_fifteen = 'http://www.yelp.com/biz/century-20-downtown-redwood-city-redwood-city?osq=cinemark+theatre'
-
-    theatre_list_test = [theatre_one]
-    #theatre_list = [theatre_one, theatre_two, theatre_three, theatre_four, theatre_five, theatre_six, theatre_seven, theatre_eight, theatre_nine, theatre_ten, 
-    #                theare_eleven, theatre_twelve, theatre_thirteen, theatre_fourteen, theatre_fifteen,]
-
-    for theatre in theatre_list_test:                                 # loop through theatre list and perform yelpgrabbing on each
-        soup = BeautifulSoup(urllib2.urlopen(theatre), 'html.parser') # parse html using beautiful soup  
-
-        Theatre = TheatreData()
-
-        desc_list = soup('p', {"itemprop":"description"})             # find and return a list of all user reviews on the page
-        user_name = soup('a', {"class":"user-display-name"})          # find and return a list of all user names for each user review
-        overall_rate = soup('div', {"itemprop":"aggregateRating"})    # find and return a list of (one) theatre aggregate review
-        user_meta = soup('div', {"itemprop":"review" })               # find and return a list of all user ratings for each user review
-        comment_date = soup('span', {"class":"rating-qualifier"})     # find and return a list of dates for each comment? (need to verify)
-
-        u_name_and_review_list = []                                   # define lists - list for review by user name
-        rating_and_user_list = []                                     # list for rating and matching user
-        date_list = []                                                # list for dates
-        user_rating_date_list = []                                    # list for user rating and date
-        list_final = []                                               # list with all content
-
-        list_of_data_lists = [u_name_and_review_list, rating_and_user_list, date_list, user_rating_date_list, list_final] # group the lists togethor
-
-        for l in list_of_data_lists:   # iterate through the group to delete the contents of any previous theatres
-            del l[:]
-
-        theatre_name = soup.find('h1') # find theatre name
-=======
->>>>>>> 1656fa56058f1d065e5bc8e5c16ce6e4b71b9c2f
     theatre_one = 'http://www.yelp.com/biz/century-theatres-rowland-plaza-novato?osq=rowland+theatre' #Theatre 472 
     theatre_two = 'http://www.yelp.com/biz/century-theatres-northgate-san-rafael?osq=cinemark+northgate'#Theatre 470
     theatre_three = 'http://www.yelp.com/biz/cinearts-at-the-empire-san-francisco' #Theatre 392
@@ -141,17 +58,12 @@ def main():
     theatre_eighteen = 'http://nz.yelp.com/biz/century-olympia-theaters-olympia?sort_by=rating_desc' #Theatre 497
     theatre_nineteen = 'http://www.yelp.com/biz/lincoln-square-cinemas-bellevue-2' #Theatre 1118
     
-<<<<<<< HEAD
     #theatre_list_test = [theatre_one]
 
-=======
-    
->>>>>>> 1656fa56058f1d065e5bc8e5c16ce6e4b71b9c2f
     theatre_list = [theatre_one, theatre_two, theatre_three, theatre_four, theatre_five, theatre_six, theatre_seven, theatre_eight, theatre_nine, 
                     theatre_ten, theare_eleven, theatre_twelve, theatre_thirteen, theatre_fourteen, theatre_fifteen, theatre_sixteen, theatre_seventeen, 
                     theatre_eighteen, theatre_nineteen]
     
-<<<<<<< HEAD
 
     for theatre in theatre_list:                                 # loop through theatre list and perform yelpgrabbing on each
         soup = BeautifulSoup(urllib2.urlopen(theatre), 'html.parser') # parse html using beautiful soup  
@@ -177,27 +89,6 @@ def main():
 
 
         theatre_name = soup.find('h1') # find theatre name
-=======
-    for theatre in theatre_list:
-        
-        soup = BeautifulSoup(urllib2.urlopen(theatre), 'html.parser')                                 # parse html using beautiful soup  
-          
-        # using the format 'tag', {'attribute', 'attribute-name'} we can find specific html elements on the page
-        #theatre_name = soup('h1', {"itemprop":"name"})
-        desc_list = soup('p', {"itemprop":"description"})     # creates a list of all the reviews on the page
-        user_name = soup('a', {"class":"user-display-name"})  # creates a list of all the user names on the page
-        overall_rate = soup('div', {"itemprop":"aggregateRating"})
-        user_meta = soup('div', {"itemprop":"review" })       # creates a list of all the ratings on the page
-        comment_date = soup('span', {"class":"rating-qualifier"})
-        
-        u_name_and_review_list = []                           # define lists - first one is for review by user name,
-        rating_and_user_list = []
-        date_list = []
-        user_rating_date_list = []
-        
-        theatre_name = soup.find('h1')
->>>>>>> branch_austin
->>>>>>> 1656fa56058f1d065e5bc8e5c16ce6e4b71b9c2f
         print 'threatre name:', theatre_name.text
         print 'Comments & Ratings:\n'
 
@@ -221,17 +112,8 @@ def main():
         for user_rate_date, review in zip(user_rating_date_list, u_name_and_review_list): # merge all data into a final list 
             list_final.append(user_rate_date + " " + review)
 
-<<<<<<< HEAD
         for merged_data in list_final:
             print merged_data
 
 if __name__ == '__main__':
     main()
-    
-=======
-        #for merged_data in list_final:
-            #print merged_data
-
-if __name__ == '__main__':
-    main()
->>>>>>> 1656fa56058f1d065e5bc8e5c16ce6e4b71b9c2f
