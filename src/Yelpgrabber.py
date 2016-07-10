@@ -103,6 +103,7 @@ def main():
         for d in comment_date:                                           # extract date information and append to date list
             if d.find("meta"):
                 date_list.append(d.find("meta")["content"])
+                Theatre.set_post_dates(date_list)
 
         for user_and_rating, date in zip(rating_and_user_list, date_list):                # merge the two lists in the previous two loops
             user_rating_date_list.append(user_and_rating + " on date [" + date + "]")
