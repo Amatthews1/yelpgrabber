@@ -5,22 +5,20 @@ Module to input yelp data into excel spreadsheet.
 
 @author: austinmatthews
 '''
-
+import Yelpgrabber
 from openpyxl import load_workbook
 wb = load_workbook(filename = 'Yelpreviews.xlsx')
 
-print wb.get_sheet_names()
+ws = wb.get_sheet_by_name("471")
 
-ws = wb.get_sheet_by_name("392")
+#ws['A16'] = 4
 
-<<<<<<< HEAD
-print ws
-=======
-print wb.get_sheet_names()
+row_count = 0
+for c in ws.rows:
+    print 'c:', c, 'last row:', row_count
+    row_count += 1 
 
-ws = wb.get_sheet_by_name('392')
-
-ws['A23'] = 4
+last_empty_row = row_count + 1
 
 wb.save('Yelpreviews.xlsx')
->>>>>>> branch_austin
+
