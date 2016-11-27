@@ -6,28 +6,41 @@ Module to input yelp data into excel spreadsheet.
 @author: austinmatthews
 '''
 import Yelpgrabber
+import Theatre_Dir
 import yelpper
 from openpyxl import load_workbook
 
 theatre_one = 'http://www.yelp.com/biz/century-theatres-rowland-plaza-novato?osq=rowland+theatre' #Theatre 472 
 
+directory = Theatre_Dir.TheatreDirectory()
+workbook = load_workbook(filename = 'Yelpreviews.xlsx')
 
-wb = load_workbook(filename = 'Yelpreviews.xlsx')
+for t_id, t_name in directory.theatres.items():
+    t = Yelpgrabber.TheatreData(t_name)
+    review_dates = t.get_dates()
+    review_ratings = t.get_ratings()
+    worksheet = workbook.get_sheet_by_name(str(t_id))
 
-ws = wb.get_sheet_by_name("472")
+    row_count = 0
+    for c in worksheet.rows:
+        row_count += 1
+    last_empty_row = row_count + 1
 
-#ws['A16'] = 4
+    start_row = last_empty_row
 
-theatre = yelpper.TheatrePage(theatre_one)
-print 'test',theatre.page_url
-print theatre.get_dates()
+    for i, dating in enumerate(review_dates): # dating = date
+        row_to_print_in = 'A' + str(last_empty_row + i)
+        worksheet[row_to_print_in] = dating
+    
+    last_empty_row = start_row
 
-row_count = 0
-for c in ws.rows:
-    print 'c:', c, 'last row:', row_count
-    row_count += 1 
+    for i, rating in enumerate(review_ratings):
+        row_to_print_in = 'B' + str(last_empty_row + i)
+        print rating
+        worksheet[row_to_print_in] = str(rating)
+    
+    last_empty_row = start_row        
 
-last_empty_row = row_count + 1
-
-wb.save('Yelpreviews.xlsx')
+    workbook.save('Yelpreviews.xlsx')
+    break
 
